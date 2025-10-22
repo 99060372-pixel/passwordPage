@@ -1,1 +1,59 @@
 # passwordPage
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>THE WAY OUT</title>
+  <style>
+    body {
+      transition: background-color 0.5s;
+      background: #111;
+      color: white;
+      font-family: sans-serif;
+      vertical-align: middle;
+      text-align: center;
+      padding: 350px;
+    }
+    #inputBox {
+      font-size: 2.5em;
+      padding: 10px;
+      vertical-align: middle;
+      text-align: center;}
+         #submitBtn {
+        font-size: 1.7em;
+        padding: 8px 76px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>THE WAY OUT</h1>
+  <input type="text" id="inputBox" placeholder="_ _ _ _ _ _">
+  <h2></h2>
+  <button type="submit" id="submitBtn">SUBMIT</button>
+    <title>Submit</title>
+
+
+  <script>
+    const correct = "SPIDER"
+    document.getElementById("submitBtn").addEventListener("click", function(){
+      const val = document.getElementById("inputBox").value;
+      if (val === correct) {
+        document.body.style.backgroundColor = "#0f0"; // green
+        // maybe also show “Unlocked” text, animate, etc
+        document.body.innerHTML = "<h1>Unlocked!</h1>";
+      } else {
+        //clear input
+        document.getElementById("inputBox").value = "";
+      }
+    });
+    // Optionally also allow Enter key:
+    document.getElementById("inputBox").addEventListener("keydown", function(e){
+      if (e.key === "Enter") {
+        document.getElementById("submitBtn").click();
+      }
+    });
+  </script>
+
+</body>
+</html>
